@@ -39,6 +39,7 @@ public class FilesManager {
             e.printStackTrace();
         }
 
+        System.out.println(ConsoleFormatter.YELLOW + " Loaded " + books.stream().count() + " books" + ConsoleFormatter.RESET);
         return books;
     }
 }
