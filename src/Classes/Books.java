@@ -63,7 +63,7 @@ public class Books {
         }
     }
 
-    public void borrowBook() {
+    public void borrowBook(Reader currentReader) {
         System.out.println("+=====" + ConsoleFormatter.GREEN + " BORROWING " + ConsoleFormatter.RESET + "=====+");
         scanner.nextLine();
         System.out.print("Enter exact book title you want to borrow: ");
@@ -76,7 +76,7 @@ public class Books {
                     return;
                 }
 
-                book.borrowBook();
+                book.borrowBook(currentReader);
 
                 System.out.println("Book\n" + ConsoleFormatter.WHITE + book + ConsoleFormatter.RESET + "\nhas been borrowed");
                 return;
