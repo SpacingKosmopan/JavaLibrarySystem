@@ -12,8 +12,15 @@ public class Book {
         this.publicationYear = publicationYear;
     }
 
+    public Book(String title, String author, int publicationYear, boolean isBorrowed) {
+        this.title = title;
+        this.author = author;
+        this.publicationYear = publicationYear;
+        this.isBorrowed = isBorrowed;
+    }
+
     public void displayInfo() {
-        System.out.println("Title: " + title + "\nAuthor: " + author + "\nPublication Year: " + publicationYear);
+        System.out.println("Title: " + title + "\nAuthor: " + author + "\nPublication Year: " + publicationYear + "\nBorrowed: " + (isBorrowed ? "yes" : "no"));
     }
 
     public void borrowBook() {
@@ -38,6 +45,9 @@ public class Book {
 
     @Override
     public String toString() {
-        return "╭ Title: " + title + "\n│ Author: " + author + "\n╰ Publication Year: " + publicationYear;
+        return "╭ Title: " + title
+                + "\n│ Author: " + author
+                + "\n│ Publication Year: " + publicationYear
+                + "\n╰ Borrowed: " + (isBorrowed ? "yes" : "no");
     }
 }

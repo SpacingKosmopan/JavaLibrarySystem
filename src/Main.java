@@ -1,6 +1,9 @@
 import Classes.Book;
 import Classes.ConsoleFormatter;
+import Classes.FilesManager;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -9,8 +12,7 @@ class Main {
 
     Scanner scanner = new Scanner(System.in);
 
-    void main() {
-
+    void main() throws IOException {
         String menuDisplay = ConsoleFormatter.GREEN + "===== LIBRARY MANAGEMENT ====="
                 + ConsoleFormatter.WHITE + """
                 \n/b1./0 Add book
@@ -42,6 +44,15 @@ class Main {
                 case 4:
                     borrowBook();
                     break;
+                case 5:
+                    FilesManager.saveBooksToFile(books);
+                    break;
+                case 6:
+                    books = FilesManager.loadBooksFromFile();
+                    break;
+                case 0:
+                    System.out.println("Bye bye!");
+                    break;
 
                 default:
                     System.out.println(ConsoleFormatter.RED + "Invalid choice." + ConsoleFormatter.RESET);
@@ -60,7 +71,12 @@ class Main {
         int publicationYear = scanner.nextInt();
 
         if (title.isEmpty() || author.isEmpty() || publicationYear < 0) {
-            System.out.println(ConsoleFormatter.RED + "Invalid input!");
+            System.out.println(ConsoleFormatter.RED + "Invalid input!" + ConsoleFormatter.RESET);
+            return;
+        }
+
+        if (title.contains(";") || author.contains(";")) {
+            System.out.println(ConsoleFormatter.RED + "Data cannot contain ';'" + ConsoleFormatter.RESET);
             return;
         }
 
