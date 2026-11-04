@@ -1,6 +1,7 @@
 import Classes.Book;
 import Classes.ConsoleFormatter;
 import Classes.FilesManager;
+import Classes.Reader;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -8,6 +9,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 class Main {
+    Reader r = new Reader("Aga","Memnon");
+
     ArrayList<Book> books = new ArrayList<>();
 
     Scanner scanner = new Scanner(System.in);
