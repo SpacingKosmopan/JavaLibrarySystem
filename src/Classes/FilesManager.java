@@ -14,7 +14,7 @@ public class FilesManager {
             //books.forEach(book -> bw.printf("%s;%s;%d\n", book.getTitle(), book.getAuthor(),book.getPublicationYear()));
 
             for (Book book : books) {
-                String writeReader = book.borrowedBy != null ? (';' + book.borrowedBy.id + ';' + book.borrowedBy.firstName + ';' + book.borrowedBy.lastName) : "";
+                String writeReader = book.borrowedBy != null ? (";" + book.borrowedBy.id + ";" + book.borrowedBy.firstName + ";" + book.borrowedBy.lastName) : "";
 
                 bw.write(book.getTitle() + ';' + book.getAuthor() + ';' + book.getPublicationYear() + ';' + book.isBorrowed() + writeReader);
                 bw.newLine();
@@ -36,16 +36,14 @@ public class FilesManager {
             while ((line = br.readLine()) != null) {
                 String[] bookData = line.split(";");
 
-                String readerData = bookData[4]!=null?:"";
+                Reader readerData = bookData[4] != null ? new Reader(Integer.parseInt(bookData[4]), bookData[5], bookData[6]) : null;
                 books.add(
                         new Book(
                                 bookData[0],
                                 bookData[1],
                                 Integer.parseInt(bookData[2]),
                                 Boolean.parseBoolean(bookData[3]),
-                                new Reader(Integer.parseInt(bookData[4]),
-                                        bookData[5],
-                                        bookData[6])
+                                readerData
                         )
                 );
             }

@@ -25,11 +25,12 @@ public class Book {
         System.out.println("╭ Title: " + title
                 + "\n│ Author: " + author
                 + "\n│ Publication Year: " + publicationYear
-                + "\n╰ Borrowed: " + (isBorrowed ? "yes" : "no"));
+                + "\n╰ Borrowed: " + (isBorrowed ? "yes, by " + borrowedBy : "no"));
     }
 
-    public void borrowBook() {
+    public void borrowBook(Reader currentReader) {
         isBorrowed = true;
+        borrowedBy = currentReader;
     }
 
     public String getTitle() {
@@ -53,6 +54,6 @@ public class Book {
         return "╭ Title: " + title
                 + "\n│ Author: " + author
                 + "\n│ Publication Year: " + publicationYear
-                + "\n╰ Borrowed: " + (isBorrowed ? "yes" : "no");
+                + "\n╰ Borrowed: " + (isBorrowed ? "yes, by " + borrowedBy : "no");
     }
 }
