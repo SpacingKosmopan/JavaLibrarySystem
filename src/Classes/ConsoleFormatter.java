@@ -2,6 +2,9 @@ package Classes;
 
 import java.util.Map;
 
+/**
+ * This class was imported from my old Java project. I often reuse it in my projects. And when I need - I modify it in current one
+ */
 public class ConsoleFormatter {
     // Reset
     public static final String RESET = "\u001B[0m";
@@ -62,19 +65,19 @@ public class ConsoleFormatter {
         }
     }
 
-    /*public static final Map<Character, String> TOKENS = Map.of(
+    public static final Map<Character, String> TOKENS = Map.of(
             '/', "/",
             'r', RED,
             'g', GREEN,
             'b', BLUE,
             'y', YELLOW,
-            'f', RED_BCKG,
-            'n', BLACK_BCKG,
+            //'f', RED_BCKG,
+            //'n', BLACK_BCKG,
             '0', RESET,
             'B', BOLD
-    );*/
+    );
 
-    /*public static String deregex(String textToFormat) {
+    public static String deregex(String textToFormat) {
         StringBuilder output = new StringBuilder();
         for (int i = 0; i < textToFormat.length(); i++) {
             char ch = textToFormat.charAt(i);
@@ -84,7 +87,7 @@ public class ConsoleFormatter {
             } else output.append(ch);
         }
         return output.toString();
-    }*/
+    }
 
     String text;
 

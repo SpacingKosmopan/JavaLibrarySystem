@@ -35,4 +35,9 @@ public class Book {
     public boolean isBorrowed() {
         return isBorrowed;
     }
+
+    @Override
+    public String toString() {
+        return "╭ Title: " + title + "\n│ Author: " + author + "\n╰ Publication Year: " + publicationYear;
+    }
 }
